@@ -1,6 +1,6 @@
-var myApp = angular.module('myApp', []);
+var developerController = angular.module('developerController', []);
 
-myApp.controller('MyController', function MyController($scope){
+developerController.controller('MyController', function MyController($scope){
 	$scope.author = {
 		'name' : 'Amrit Deep Dhungana',
 		'title' : 'Ruby Develoer',
@@ -9,7 +9,7 @@ myApp.controller('MyController', function MyController($scope){
 });
 
 // Handle Ajax Request
-myApp.controller('DataController', ['$scope', '$http', function($scope, $http){
+developerController.controller('DataController', ['$scope', '$http', function($scope, $http){
 
 	$http({
 		method: "GET",
@@ -17,14 +17,25 @@ myApp.controller('DataController', ['$scope', '$http', function($scope, $http){
 	}).then(function(data){
 		$scope.developer = data;
 		$scope.developerOrder = 'name';
-	})
+	});
 
 	// $http.get('js/data.json').success(function(data){
 	// 	$scope.developer = data;
 	// });
 }]);
 
-myApp.controller('GreetingController', ['$scope', function($scope) {
+developerController('DetailsController', ['$scope', '$http', '$routeParams', function($scope, $http, '$routeParams'){
+	$http({
+		method: "GET",
+		url: "js/data.json"
+	}).then(function(data){
+		$scope.developer = data;
+		$scope.whichDev = $routeParams.devId;
+	});
+
+}]);
+
+developerController.controller('GreetingController', ['$scope', function($scope) {
   $scope.greeting = 'Hello ';
 }]);
 
