@@ -16,6 +16,7 @@ myApp.controller('DataController', ['$scope', '$http', function($scope, $http){
 		url: "js/data.json"
 	}).then(function(data){
 		$scope.developer = data;
+		$scope.developerOrder = 'name';
 	})
 
 	// $http.get('js/data.json').success(function(data){
