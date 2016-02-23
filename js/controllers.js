@@ -8,39 +8,20 @@ myApp.controller('MyController', function MyController($scope){
 	}
 });
 
-myApp.controller('DataController', function DataController($scope){
-	$scope.developer = 
-		[
-{
-	'name' : 'Josh',
-	'title' : 'Ruby Develoer',
-	'compnay' : 'Crate Bind'
-},
-{
-	'name' : 'John',
-	'title' : 'Ruby Develoer',
-	'compnay' : 'Crate Bind'
-},
-{
-	'name' : 'Marry',
-	'title' : 'Php Develoer',
-	'compnay' : 'Crate Bind'
-},
-{
-	'name' : 'Harry',
-	'title' : 'Java Develoer',
-	'compnay' : 'Crate Bind'
-},
-{
-	'name' : 'Rick',
-	'title' : '.Net Develoer',
-	'compnay' : 'Crate Bind'
-}
+// Handle Ajax Request
+myApp.controller('DataController', ['$scope', '$http', function($scope, $http){
 
-]
-	
+	$http({
+		method: "GET",
+		url: "js/data.json"
+	}).then(function(data){
+		$scope.developer = data;
+	})
 
-});
+	// $http.get('js/data.json').success(function(data){
+	// 	$scope.developer = data;
+	// });
+}]);
 
 myApp.controller('GreetingController', ['$scope', function($scope) {
   $scope.greeting = 'Hello ';
