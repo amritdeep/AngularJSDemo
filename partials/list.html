@@ -1,0 +1,36 @@
+<section class="developerpage">
+
+	<div class="search">
+		<h5>Developer Search</h5>
+		<label>Search :</label>
+		<input ng-model="query" placeholder="Search for Developer">
+
+		<label class="formgroup">by:
+			<select ng-model="developerOrder">
+				<option value="name">Name</option>
+				<option value="title">Title</option>
+				<option value="company">Company</option>
+			</select>
+			
+		</label>
+
+		<label class="formgroup">
+			<input type="radio" ng-model="direction" name="direction" checked>ascending
+		</label>
+
+		<label class="formgroup">
+			<input type="radio" ng-model="direction" name="direction" value="reverse">descending
+		</label>
+	</div>
+
+	<div ng-controller="DataController">
+		<li class="developer" ng-repeat="dev in developer | filter : query 
+		| orderBy : developerOrder:direction">
+			<a href="#/details/{{developer.indexOf(dev)}}"></a>
+			<h2>{{dev.name}}</h2>
+			<p>{{dev.title + " " + dev.compnay }}</p>
+		</li>
+	</div>
+	
+</section>
+
