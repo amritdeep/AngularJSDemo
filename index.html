@@ -21,6 +21,13 @@
 		<p>{{author.compnay }}</p>
 	</div>
 
+	<div ng-controller="DataController">
+		<li class="developer" ng-repeat="dev in developer">
+			<h2>{{dev.name}}</h2>
+			<p>{{dev.title + " " + dev.compnay }}</p>
+		</li>
+	</div>
+
 
 </body>
 </html>
