@@ -8,6 +8,41 @@ myApp.controller('MyController', function MyController($scope){
 	}
 });
 
+myApp.controller('DataController', function DataController($scope){
+	$scope.developer = 
+		[
+{
+	'name' : 'Josh',
+	'title' : 'Ruby Develoer',
+	'compnay' : 'Crate Bind'
+},
+{
+	'name' : 'John',
+	'title' : 'Ruby Develoer',
+	'compnay' : 'Crate Bind'
+},
+{
+	'name' : 'Marry',
+	'title' : 'Php Develoer',
+	'compnay' : 'Crate Bind'
+},
+{
+	'name' : 'Harry',
+	'title' : 'Java Develoer',
+	'compnay' : 'Crate Bind'
+},
+{
+	'name' : 'Rick',
+	'title' : '.Net Develoer',
+	'compnay' : 'Crate Bind'
+}
+
+]
+	
+
+});
+
 myApp.controller('GreetingController', ['$scope', function($scope) {
   $scope.greeting = 'Hello ';
 }]);
+
